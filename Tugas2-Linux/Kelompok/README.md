@@ -5,8 +5,9 @@
 ## Anggota Kelompok :
 
 - Alan Tri Arbani Hidayat (3121600056)
-- Wiman Mahroja (31216000)
-- Emha Aji Putra Zaman (31216000)
+- Wiman Mahroja (3121600031)
+- Emha Aji Putra Zaman (3121600042)
+- Cantika Putri Romadhona (3121600051)
 
 ## Roadmap
  - Check Ip PC
@@ -114,3 +115,11 @@ Tampilan awal VirtualBox setelah dijalankan
 ## Install Ubuntu di Virtual Box
 
 Sebelum memulai penginstallan, persiapkanlah file .ISO ubuntu untuk memulai penginstallan
+
+Berikut cara penginstallan Ubuntu di Virtual Box
+- Membuat Nama Virtual machine dann memasukkan .ISO image Ubuntu
+- Tentukan Username Password serta nama Hostname
+- Tentukan Ukuran RAM dan CPU, Untuk perobaan kali ini diberikan 4 GB dan 4 core CPU
+- Berikan Storage Virtual secukupnya. contoh dipercobaan ini adalah 40 GB
+- Berikut ini adalah summary dari opsi konfigurasi pembuatan Virtual Ubuntu
+- Tunggu hingga Selesai dan Ubuntu Siap digunakan
