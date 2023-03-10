@@ -7,5 +7,9 @@ Selamat datang direpositori Admin-Jaringan Documentation. Direpo ini berisi doku
 
 ## Documentation
 
+[Tugas1-Cisco](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas1-Cisco)
+
 [Tugas2-Linux](https://github.com/alanhidayat33/Admin-Jaringan/blob/main/Tugas2-Linux/README.md)
+
+
 

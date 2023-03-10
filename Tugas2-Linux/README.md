@@ -5,3 +5,4 @@
 
 - [Resume](https://github.com/alanhidayat33/Admin-Jaringan/blob/main/Tugas2-Linux/Resume/README.md)
 
+- [Tugas Kelompok Routing](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas2-Linux/Kelompok)
