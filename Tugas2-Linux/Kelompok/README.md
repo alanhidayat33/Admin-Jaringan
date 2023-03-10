@@ -117,9 +117,26 @@ Tampilan awal VirtualBox setelah dijalankan
 Sebelum memulai penginstallan, persiapkanlah file .ISO ubuntu untuk memulai penginstallan
 
 Berikut cara penginstallan Ubuntu di Virtual Box
-- Membuat Nama Virtual machine dann memasukkan .ISO image Ubuntu
+- Membuat Nama Virtual machine dan memasukkan .ISO image Ubuntu
+
+    ![](../Screenshoot/name%20vm.png)
+
 - Tentukan Username Password serta nama Hostname
+
+    ![](../Screenshoot/host.png)
+
 - Tentukan Ukuran RAM dan CPU, Untuk perobaan kali ini diberikan 4 GB dan 4 core CPU
+
+    ![](../Screenshoot/ram.png)
+
 - Berikan Storage Virtual secukupnya. contoh dipercobaan ini adalah 40 GB
+
+    ![](../Screenshoot/storage.png)
+
 - Berikut ini adalah summary dari opsi konfigurasi pembuatan Virtual Ubuntu
+
+    ![](../Screenshoot/summary.png)
+
 - Tunggu hingga Selesai dan Ubuntu Siap digunakan
+
+    ![](../Screenshoot/install.png)
