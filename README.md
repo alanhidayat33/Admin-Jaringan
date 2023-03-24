@@ -11,5 +11,7 @@ Selamat datang direpositori Admin-Jaringan Documentation. Direpo ini berisi doku
 
 [Tugas2-Linux](https://github.com/alanhidayat33/Admin-Jaringan/blob/main/Tugas2-Linux/README.md)
 
+[Tugas4-Routing & NTP](https://github.com/alanhidayat33/Admin-Jaringan/blob/main/Tugas4-Hostname/laporan%20praktikum%205.md)
+
 
 
