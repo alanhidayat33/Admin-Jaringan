@@ -82,7 +82,8 @@ Konfigurasi IP VM dapat melalui GUI maupun CLI, berikut cara setting IP address 
 -  Selanjutnya pilih tab IPv4. Setelah di bawah Metode IPv4 pilih opsi Manual.
     <img src="./images/No 62.png" width="" height="150" /><br><br>
 -  Mengisikan IP Adress, Netmask, dan Gateway sesuai dengan yang ditentukan. Setelah itu apply
-    <img src="./images/No 6.png" width="" height="500" /><br><br>
+
+    <img src="./images/No 63.png" width="" height="500" /><br><br>
 
 ### **Konfigurasi NTP ke 0. id.pool.ntp.org 1. id.pool.ntp.org**
 #
