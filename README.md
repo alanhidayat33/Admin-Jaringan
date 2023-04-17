@@ -15,5 +15,6 @@ Selamat datang direpositori Admin-Jaringan Documentation. Direpo ini berisi doku
 
 [Tugas5-DNS](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas5-DNS)
 
+[Tugas6-Implementasi DNS](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas5-DNS)
 
 
