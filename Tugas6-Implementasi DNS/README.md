@@ -19,6 +19,6 @@ Alan Tri Arbani Hidayat - 3121600056</br>
 
 ## **Implementasi DNS**
 
-[![Nama Video](https://img.youtube.com/vi/faCeg1J5zZo/0.jpg)](https://www.youtube.com/watch?v=faCeg1J5zZo)
+
 
 Sekian dan Terima Kasih 😊😊
