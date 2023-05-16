@@ -17,4 +17,5 @@ Selamat datang direpositori Admin-Jaringan Documentation. Direpo ini berisi doku
 
 [Tugas6-Implementasi DNS](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas6-Implementasi%20DNS)
 
+[Tugas7-Web Server & FTP](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas7-Web%20Server)
 
