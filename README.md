@@ -19,3 +19,5 @@ Selamat datang direpositori Admin-Jaringan Documentation. Direpo ini berisi doku
 
 [Tugas7-Web Server & FTP](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas7-Web%20Server)
 
+[Tugas8-DNS Master/Slave & Laravel](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas8-Laravel%20%26%20DNS%20Slave)
+
