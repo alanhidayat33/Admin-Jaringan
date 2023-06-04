@@ -18,13 +18,13 @@ Alan Tri Arbani Hidayat 3121600056<br>
 
 ### **Requirement**
 #
-1.  Mail server adalah sebuah sistem yang membantu dalam pendistribusian email, baik dalam proses menerima atau mengirim. Secara sederhana, mail server adalah perantara dalam proses pengiriman dan penerimaan surat. Email yang dikirim akan disimpan pada mail server, kemudian selanjutnya diforward oleh mail server ke penerima.
+1.  **Mail server** adalah sebuah sistem yang membantu dalam pendistribusian email, baik dalam proses menerima atau mengirim. Secara sederhana, mail server adalah perantara dalam proses pengiriman dan penerimaan surat. Email yang dikirim akan disimpan pada mail server, kemudian selanjutnya diforward oleh mail server ke penerima.
    
-2.  Postfix adalah mail transfer agent free dan open source. Postfix merupakan mail transfer agent default untuk sejumlah sistem operasi bertipe Unix. Postfix didistribusikan menggunakan Lisensi Umum IBM 1.0 yang merupakan lisensi perangkat lunak bebas tetapi tidak kompatibel dengan GPL. Salah satu ketangguhan Postfix adalah kemampuannya menahan “buffer overflow”. Ketangguhan lainnya adalah kesanggupan Postfix memproses surat elektronik dalam jumlah banyak.
+2. **Postfix** adalah mail transfer agent free dan open source. Postfix merupakan mail transfer agent default untuk sejumlah sistem operasi bertipe Unix. Postfix didistribusikan menggunakan Lisensi Umum IBM 1.0 yang merupakan lisensi perangkat lunak bebas tetapi tidak kompatibel dengan GPL. Salah satu ketangguhan Postfix adalah kemampuannya menahan “buffer overflow”. Ketangguhan lainnya adalah kesanggupan Postfix memproses surat elektronik dalam jumlah banyak.
 
-3.  Dovecot adalah server email IMAP dan POP3 open source untuk sistem Linux / UNIX, yang ditulis dengan mengutamakan keamanan. Dovecot adalah pilihan yang sangat baik untuk instalasi kecil dan besar. Cepat, mudah diatur, tidak memerlukan administrasi khusus dan hanya menggunakan sedikit RAM/memori.
+3.  **Dovecot** adalah server email IMAP dan POP3 open source untuk sistem Linux / UNIX, yang ditulis dengan mengutamakan keamanan. Dovecot adalah pilihan yang sangat baik untuk instalasi kecil dan besar. Cepat, mudah diatur, tidak memerlukan administrasi khusus dan hanya menggunakan sedikit RAM/memori.
    
-4.  Roundcube adalah email client IMAP berbasis web. Fitur Roundcube yang paling menonjol adalah penggunaan teknologi Ajax. Salah satu software open source yang berlisensi GNU General Public License (GPL).
+4.  **Roundcube** adalah email client IMAP berbasis web. Fitur Roundcube yang paling menonjol adalah penggunaan teknologi Ajax. Salah satu software open source yang berlisensi GNU General Public License (GPL).
 
 
 ### **Konfigurasi Postfix dan Dovecot**
@@ -37,9 +37,9 @@ Sebelum memulai install mail server, ada baiknya siapkan domain khusus yang akan
     ```
 2. **Konfigurasi Postfix** <br>
     Setelah installasi selesai akan muncul message box, kemudian pilih internet site agar komunikasi email menggunakan protokol SMTP secara langsung.
-    <img src="./gambar/slave.png"/><br>
+    <img src="./gambar/1.png"/><br>
     Selanjutnya masukkan nama domain yang akan digunakan.
-    <img src="./gambar/slave.png"/><br>
+    <img src="./gambar/2.png"/><br>
     Setelah itu, postfix akan menyelesaikan installasinya. Setelah Installasi selesai, edit file di /etc/postfix/main.cf dan tambahkan home_mailbox = Maildir/ pada baris paling bawah.
     ```
     sudo nano /etc/postfix/main.cf
@@ -63,15 +63,15 @@ Sebelum memulai install mail server, ada baiknya siapkan domain khusus yang akan
     dpkg-reconfigure postfix
     ```
     Pilih beberapa pilihan dan isikan beberapa input yang akan muncul, sesuaikan dengan topology/konfigurasi sistem dan kebutuhan.
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
-    <img src="./gambar/slave.png"/><br>
+    <img src="./gambar/1.png"/><br>
+    <img src="./gambar/2.png"/><br>
+    <img src="./gambar/3.png"/><br>
+    <img src="./gambar/4.png"/><br>
+    <img src="./gambar/5.png"/><br>
+    <img src="./gambar/6.png"/><br>
+    <img src="./gambar/7.png"/><br>
+    <img src="./gambar/8.png"/><br>
+    <img src="./gambar/9.png"/><br>
 
     Restart postfix service.
     ```
@@ -129,59 +129,131 @@ Sebelum memulai install mail server, ada baiknya siapkan domain khusus yang akan
 
 
     
-### **Config DNS Slave**
+### **Konfigurasi RoundCube**
 #
--  Buka direktori `/etc/bind/named.conf.default-zones` untuk konfigurasi DNS slave
-    <img src="./gambar/slave.png"/>
-- jangan lupa untuk restart service dns master
+1. **Install Mariadb dan Roundcube** <br>
+    Install roundcube sebagai webmail yang akan digunakan oleh client, dan package mariadb yang nantinya akan digunakan sebagai database dari roundcube.
+     ```
+    apt install mariadb-server roundcube
     ```
-    sudo systemctl reload named
+    Pilih yes untuk membuat database secara otomatis oleh roundcube.
+    <img src="./gambar/10.png"/><br>
+    Masukkan password database roundcube.
+    <img src="./gambar/11.png"/><br>
+    <img src="./gambar/12.png"/><br>
+    Edit file /etc/roundcube/config.inc.php.
+     ```
+    sudo nano /etc/roundcube/config.inc.php
     ```
-- untuk melihat apakah slave berhasil transfer zone masternya gunakan command berikut
+    Isikan default host dengan nama domain mail server.
+     ```
+    ...
+    // For example %n = mail.domain.tld, %t = domain.tld
+    $config['default_host'] = 'mail.kampus-02.takehome.com';
+    ...
     ```
-    sudo grep "transfer" /var/log/syslog
+    Ganti smtp server dengan nama domain mail server.
     ```
-- maka akan keluar output berikut jika berhasil transfer `transfer status : success`
-    <img src="./gambar/transfer success.png"/>
+    ...
+    // For example %n = mail.domain.tld, %t = domain.tld
+    $config['smtp_server'] = 'mail.kampus-02.takehome.com';
+    ...
+    ```
+    Ganti smtp port dari 587 ke 25.
+    ```
+    ...
+    // SMTP port. Use 25 for cleartext, 465 for Implicit TLS, or 587 for STARTTLS (default)
+    $config['smtp_port'] = 25;
+    ...
+    ```
+    Kosongkan value dari smtp user.
+    ```
+    ...
+    // will use the current username for login
+    $config['smtp_user'] = '';
+    ...
+    ```
+    Kosongkan value dari smtp password
+    ```
+    ....
+    // will use the current user's password for login
+    $config['smtp_pass'] = '';
+    ...
+    ```
+    Configure ulang roundcube (langkah ini bisa dilewati).
+    ```
+    dpkg-reconfigure roundcube-core
+    ```
 
-- cara lain untuk memastikan bahwa berhasil terhubung adalah dengan mengecek di direktori `/var/cache/bind` terdapat file zone masters
-    <img src="./gambar/transfer success2.png"/>
+    Kosongkan karena kita tidak menggunakan tls.
+    <img src="./gambar/13.png"/><br>
 
-### **Install Composer**
+    Pilih bahasa untuk roundcube.
+    <img src="./gambar/14.png"/><br>
+
+    Pilih no jika tidak ingin reinstall database yang telah dibuat.
+    <img src="./gambar/15.png"/><br>
+
+    Check pada pilihan apache dan uncheck lighttpd.
+    <img src="./gambar/16.png"/><br>
+
+    Pilih yes untuk merestart web server.
+    <img src="./gambar/17.png"/><br>
+
+    Keep local version jika tidak ingin merubah versi roundcube ke yang lebih terbaru.
+    <img src="./gambar/18.png"/><br>
+
+    Edit apache config untuk memasukkan konfigurasi tambahan dari roundcube ke apache config.
+    ```
+    sudo nano /etc/apache2/apache2.conf
+    ```
+
+    Tambahkan pada baris paling bawah.
+    ```
+    Include /etc/roundcube/apache.conf
+    ```
+
+    Selanjutnya, masuk ke directory website apache dan tambahkan file baru untuk mail server.
+    ```
+    cd /etc/apache2/sites-available
+    touch mail.conf
+    vi mail.conf
+    ```
+
+    ```
+    <VirtualHost *:80>
+    ServerName mail.kampus-02.takehome.com
+    DocumentRoot /usr/share/roundcube
+    </VirtualHost>
+    ```
+
+    Disable apache default config dan enable kan mail config.
+    ```
+    a2dissite 000-default.conf
+    a2ensite mail.conf
+    ```
+
+    Restart apache service.
+    ```
+    sudo systemctl restart apache2
+    ```
+
+### **Testing**
 #
-- karena sudah menginstall apache, php, dan mysql maka langsung menginstall composernya & laravel saja
-- install composer
+- buat user untuk mail terlebih dahulu
     ```
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+    adduser satu
+    adduser dua
     ```
-- cek apakah composer sudah terinstall
+    jangan lupa restart postfix dan dovecot
     ```
-    composer
+    systemctl restart postfix dovecot
     ```
-- jika berhasil akan keluar output seperti berikut
-    <img src="./gambar/test composer.png"/>
+- Selanjutnya buka web browser pada sisi client dan masukkan domain dari mail server (**mail.kampus-02.takehome.com**), maka akan muncul interface dari roundcube. Lalu login menggunakan salah satu user yang telah dibuat.
+  <img src="./gambar/login satu.png"/><br>
 
-### **Install Laravel**
-#
-- pindah ke direktori `/var/www/html/` sebagi direktori project laravel
-- Buat project laravel
-    ```
-    composer create-project laravel/laravel kelompok2
-    ```
-    <img src="./gambar/create_laravel_project.png"/>
-- ubah permission direktori project
-    ```
-    chown -R kel1:kel1 .
-    chmod -R 775 storage/
-    ```
-    <img src="./gambar/change_chown.png"/>
+  Klik pada compose dan isikan pesan untuk user lainnya. Lalu klik send.
+  <img src="./gambar/send mail.png"/><br>
 
-- testing jalankan project laravel dengan port 8000
-    ```
-    php artisan serve --host 192.168.2.21 --port 8000
-    ```
-- coba di pc client apakah laravel sudah berjalan dan dapat dibuka
-    ```
-    192.168.2.21
-    ```
-    <img src="./gambar/my web.png"/>
+  Logout dan login ke user penerima, maka akan muncul pesan yang dikirim.
+  <img src="./gambar/user dua.png"/><br>
