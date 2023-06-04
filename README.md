@@ -21,3 +21,5 @@ Selamat datang direpositori Admin-Jaringan Documentation. Direpo ini berisi doku
 
 [Tugas8-DNS Master/Slave & Laravel](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas8-Laravel%20%26%20DNS%20Slave)
 
+[Tugas9-Mail Server](https://github.com/alanhidayat33/Admin-Jaringan/tree/main/Tugas9-Mail%20Server)
+

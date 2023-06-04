@@ -249,6 +249,73 @@ Sebelum memulai install mail server, ada baiknya siapkan domain khusus yang akan
     ```
     systemctl restart postfix dovecot
     ```
+- Testing dengan **telnet**
+    ```
+    apt install telnet
+    ```
+
+    Test kirim file menggunakan perintah telnet <nama domain> <port> dengan menggunakan port 25 (SMTP). Masukkan nama alamat pengirim menggunakan mail from:. Masukkan nama alamat penerima menggunakan rcpt to:. Ketikkan data lalu enter. Isikan subject dengan megetikkan Subject: <isi subject>. Lalu isikan pesan yang akan dikirim kemudian isikan titik (.) untuk mengakhiri pesan.
+    ```
+    telnet mail.kampus-02.takehome.com 25
+    ```
+
+    ```
+    Trying 192.168.122.146...
+    Connected to mail.kampus-02.takehome.com
+    Escape character is '^]'.
+    220 debian ESMTP Postfix (Debian/GNU)
+    mail from: satu@mail.kampus-02.takehome.com
+    250 2.1.0 Ok
+    rcpt to: dua@mail.kampus-02.takehome.com
+    250 2.1.5 Ok
+    data
+    354 End data with <CR><LF>.<CR><LF>
+    Subject: Testing
+    Hello World!
+    .
+    250 2.0.0 Ok: queued as 7DEAD11DF
+    quit
+    221 2.0.0 Bye
+    Connection closed by foreign host.
+    ```
+
+    Melihat pesan menggunakan perintah telnet <nama domain> <port>. Login user menggunakan user <nama user>. Dan masukkan password menggunakan pass <password>. Untuk melihat list pesan yang diterima menggunakan perintah list. Dan untuk membuka pesan yang diterima menggunakan perintah retr <nomer pesan>.<br> Perintah quit untuk keluar dari telnet.
+
+    ```
+    telnet mail.kampus-02.takehome.com 110
+    ```
+    ```
+    Trying 192.168.122.146...
+    Connected to mail.contoh.local.
+    Escape character is '^]'.
+    +OK Dovecot (Debian) ready.
+    user dua
+    +OK
+    pass 0909
+    +OK Logged in.
+    list
+    +OK 1 messages:
+    1 436
+    .
+    retr 1
+    +OK 436 octets
+    Return-Path: <satu@mail.kampus-02.takehome.com>
+    X-Original-To: dua@mail.kampus-02.takehome.com
+    Delivered-To: dua@mail.kampus-02.takehome.com
+    Received: from unknown (unknown [192.168.122.146])
+        by debian (Postfix) with SMTP id 7DEAD11DF
+        for <dua@mail.kampus-02.takehome.com>; Mon,  5 June 2023 06:38:33 +0700 (WIB)
+    Subject: Testing
+    Message-Id: <20230204174142.7DEAD11DF@debian>
+    Date: Mon,  5 June 2023 06:38:33 +0700 (WIB)
+    From: satu@mail.kampus-02.takehome.com
+
+    Hello World!
+    .
+    quit
+    +OK Logging out.
+    Connection closed by foreign host.
+    ```
 - Selanjutnya buka web browser pada sisi client dan masukkan domain dari mail server (**mail.kampus-02.takehome.com**), maka akan muncul interface dari roundcube. Lalu login menggunakan salah satu user yang telah dibuat.
   <img src="./gambar/login satu.png"/><br>
 
